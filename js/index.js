@@ -1,5 +1,3 @@
-// js/index.js
-
 const DATA_URL = "./data.json";
 const MONEY = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -29,7 +27,7 @@ async function loadData() {
 }
 
 function render(items, container) {
-  if (!container) return; // por si falta alguna sección en alguna página
+  if (!container) return; 
   const frag = document.createDocumentFragment();
   const origin = location.origin;
 
@@ -37,7 +35,6 @@ function render(items, container) {
     const card = document.createElement("article");
     card.classList.add("producto");
 
-    // Obtener la descripción traducida del producto
     const productKey = item.name
       .toLowerCase()
       .replace(/\s+/g, "-")
@@ -60,7 +57,6 @@ function render(items, container) {
       <span class="price">${MONEY.format(Number(item.price))}</span>
     `;
 
-    // Botón Snipcart
     const btn = document.createElement("button");
     btn.className = "snipcart-add-item btn-cta";
     btn.textContent = window.i18n.t("addToCart");
@@ -70,10 +66,8 @@ function render(items, container) {
       item.size ? `${item.name} (${item.size.toUpperCase()})` : item.name
     );
     btn.setAttribute("data-item-price", Number(item.price).toFixed(2));
-    // JSON crawler
     btn.setAttribute("data-item-url", `${origin}/products/${item.id}.json`);
     btn.setAttribute("data-item-description", item.description);
-    // Imagen absoluta para el crawler
     btn.setAttribute("data-item-image", new URL(item.img, location.href).href);
 
     card.appendChild(btn);
@@ -88,15 +82,12 @@ function render(items, container) {
   try {
     const data = await loadData();
 
-    // Filtrar por categoría
     const cookiesEl = document.getElementById("cookies");
     const cupcakesEl = document.getElementById("cupcakes");
 
     const cookies = data.filter((p) => p.category === "cookie");
     const cupcakes = data.filter((p) => p.category === "cupcake");
     const seasonal = data.filter((p) => p.category === "seasonal");
-
-    // Si hay "seasonal", crear sección y ponerla ARRIBA del listado de productos (debajo del hero)
     if (seasonal.length > 0) {
       const seasonalSection = document.createElement("section");
       seasonalSection.id = "seasonal-section";
@@ -106,7 +97,7 @@ function render(items, container) {
       h2.className = "title_products";
       h2.id = "seasonal-title";
       h2.setAttribute("data-i18n", "seasonalTitle");
-      // Fallback visible si no existe la clave aún
+
       const lang = window.i18n.getPreferredLanguage();
       h2.textContent =
         lang === "es" ? "Exclusivos de temporada" : "Seasonal exclusives";
@@ -118,30 +109,25 @@ function render(items, container) {
       seasonalSection.appendChild(h2);
       seasonalSection.appendChild(wrap);
 
-      // Insertar justo DESPUÉS del hero
+
       const main = document.querySelector("main");
       const hero = document.querySelector(".hero");
       if (main) {
         if (hero && hero.parentNode === main) {
           main.insertBefore(seasonalSection, hero.nextSibling);
         } else {
-          // Fallback: al inicio del <main>
           main.prepend(seasonalSection);
         }
       }
 
-      // Render de productos de temporada
+
       render(seasonal, wrap);
     }
 
-    // Render normal
     render(cookies, cookiesEl);
     render(cupcakes, cupcakesEl);
-
-    // i18n después de renderizar
     applyTranslations();
 
-    // Setear selector de idioma
     const languageSelect = document.getElementById("languageSelect");
     if (languageSelect) {
       languageSelect.value = window.i18n.getPreferredLanguage();
@@ -162,7 +148,6 @@ function render(items, container) {
   }
 })();
 
-/* ===== Get a quote (mailto + i18n-friendly) ===== */
 (function QuoteForm() {
   const form = document.getElementById("quote-form");
   if (!form) return;
@@ -211,7 +196,6 @@ function render(items, container) {
   });
 })();
 
-/* ===== Reviews Carousel (Home) ===== */
 (function ReviewsCarousel() {
   const API = "https://zdusg2gurk.execute-api.us-west-2.amazonaws.com/api/reviews";
   const viewport = document.getElementById("reviewsViewport");
@@ -219,9 +203,9 @@ function render(items, container) {
   const btnPrev = document.querySelector("#reviews .reviews-nav.prev");
   const btnNext = document.querySelector("#reviews .reviews-nav.next");
 
-  if (!viewport || !track) return; // por si esta sección no existe en alguna página
+  if (!viewport || !track) return;
 
-  // Util: estrellas sólidas/contorno simple (esta versión interna puede convivir con la global)
+ 
   function stars(n) {
     const s = Math.max(1, Math.min(5, Number(n) || 0));
     return "★".repeat(s) + "☆".repeat(5 - s);
@@ -244,13 +228,13 @@ function render(items, container) {
       .replace(/'/g, "&#39;");
   }
 
-  let index = 0; // slide index (columna inicial)
-  let cols = 1; // cuántas tarjetas entran visibles (estimado)
-  let total = 0; // total de slides
+  let index = 0; 
+  let cols = 1; 
+  let total = 0; 
 
   function computeCols() {
     const vpw = viewport.clientWidth || 1;
-    cols = Math.max(1, Math.floor(vpw / 300)); // ~300px por tarjeta
+    cols = Math.max(1, Math.floor(vpw / 300)); 
   }
   function clampIndex() {
     index = Math.max(0, Math.min(index, Math.max(0, total - cols)));
@@ -275,7 +259,6 @@ function render(items, container) {
   btnNext?.addEventListener("click", goNext);
   window.addEventListener("resize", update);
 
-  // Drag/touch (suave)
   let startX = 0, startTx = 0, dragging = false;
   viewport.addEventListener("pointerdown", (e) => {
     dragging = true;
@@ -292,12 +275,12 @@ function render(items, container) {
   viewport.addEventListener("pointerup", () => {
     if (!dragging) return;
     dragging = false;
-    track.style.transition = ""; // restore
+    track.style.transition = ""; 
     const dx = getTranslateX(track) - startTx;
     const firstCard = track.querySelector(".review-card");
     const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 300;
     const gap = parseFloat(getComputedStyle(track).gap) || 16;
-    const step = (cardWidth + gap) * 0.4; // umbral de swipe
+    const step = (cardWidth + gap) * 0.4; 
     if (dx < -step) index += 1;
     else if (dx > step) index -= 1;
     update();
@@ -307,7 +290,6 @@ function render(items, container) {
     return m.m41 || 0;
   }
 
-  // ---- CARGA (ajustada a { items, nextCursor }) ----
   async function load() {
     try {
       const res = await fetch(API, { cache: "no-store" });
@@ -323,8 +305,7 @@ function render(items, container) {
         update();
         return;
       }
-  
-      // últimas 10, más recientes primero
+
       const ordered = [...items]
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 10);
@@ -365,11 +346,10 @@ function stars(n) {
   return html;
 }
 
-/* ===== Modal tarifas de entrega al abrir carrito ===== */
 (function DeliveryFeesModal() {
-  // CUALQUIER disparador de "ver carrito" que uses
+
   const CART_TRIGGERS = [
-    ".snipcart-checkout", // tu botón en el header
+    ".snipcart-checkout", 
     'a[href="#/cart"]',
     ".snipcart-cart-button",
     "[data-view-cart]",
@@ -400,7 +380,6 @@ function stars(n) {
     currency: "USD",
   });
 
-  // Crear modal (oculto)
   const modal = document.createElement("div");
   modal.className = "fees-modal";
   modal.setAttribute("role", "dialog");
@@ -438,7 +417,6 @@ function stars(n) {
   `;
   document.body.appendChild(modal);
 
-  // Rellenar la tabla
   const tbody = modal.querySelector("tbody");
   ZONES.forEach((z) => {
     const tr = document.createElement("tr");
@@ -450,12 +428,10 @@ function stars(n) {
     tbody.appendChild(tr);
   });
 
-  // Aplicar i18n si existe
   try {
     if (window.i18n) applyTranslations();
   } catch (_) {}
 
-  // Accesibilidad y control
   let lastFocus = null;
 
   function openModal() {
@@ -465,8 +441,7 @@ function stars(n) {
     dialog?.focus();
     document.addEventListener("keydown", onKeydown);
     document.body.style.overflow = "hidden";
-    // (Opcional) Solo una vez por sesión:
-    // sessionStorage.setItem("feesShown", "1");
+
   }
   function closeModal() {
     modal.classList.remove("is-open");
@@ -510,7 +485,6 @@ function stars(n) {
     }
   });
 
-  // Interceptar click en “Ver carrito”
   document.addEventListener(
     "click",
     (e) => {
@@ -519,21 +493,13 @@ function stars(n) {
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation;
-
-      // (Opcional) prevenir re-muestreo por sesión:
-      // if (sessionStorage.getItem("feesShown") === "1") {
-      //   if (window.Snipcart?.api?.theme?.cart?.open) window.Snipcart.api.theme.cart.open();
-      //   else location.hash = "#/cart";
-      //   return;
-      // }
-
       openModal();
     },
     true
   );
 })();
 
-/* ===== Hero Image Carousel (simple) ===== */
+
 (function HeroCarousel() {
   const VIEWPORT = document.getElementById("heroViewport");
   const TRACK = document.getElementById("heroTrack");
@@ -541,8 +507,6 @@ function stars(n) {
   const BTN_PREV = document.querySelector(".hero-nav.prev");
   const BTN_NEXT = document.querySelector(".hero-nav.next");
   if (!VIEWPORT || !TRACK) return;
-
-  // <<< EDITA ESTAS RUTAS >>>
   const IMAGES = [
     "./assets/img/hero/hero2.png",
     "./assets/img/hero/hero1.jpg",
@@ -556,7 +520,6 @@ function stars(n) {
     "./assets/img/hero/hero10.webp",
   ];
 
-  // Crear slides <img>
   const frag = document.createDocumentFragment();
   IMAGES.forEach((src, idx) => {
     const slide = document.createElement("article");
@@ -576,7 +539,6 @@ function stars(n) {
   });
   TRACK.appendChild(frag);
 
-  // Dots
   IMAGES.forEach((_, i) => {
     const b = document.createElement("button");
     b.type = "button";
@@ -609,7 +571,6 @@ function stars(n) {
   BTN_PREV?.addEventListener("click", prev);
   window.addEventListener("resize", update);
 
-  // Swipe
   let startX = 0,
     startTx = 0,
     dragging = false;
@@ -640,7 +601,6 @@ function stars(n) {
     return m.m41 || 0;
   }
 
-  // Auto-avance (respeta reduce motion)
   let timer = null;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function startAuto() {
