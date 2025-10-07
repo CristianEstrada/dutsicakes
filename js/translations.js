@@ -1,4 +1,3 @@
-// js/translations.js
 const translations = {
   en: {
     // Header
@@ -216,21 +215,17 @@ const translations = {
         role1: "Head Baker",
       },
     },
-
-    // Product Descriptions (from data.json)
   },
 };
 
-// Función para obtener el idioma del navegador
 function getBrowserLanguage() {
   const language = navigator.language || navigator.userLanguage;
   const shortLang = language.split("-")[0];
 
-  // Si el idioma del navegador es español, usar español, sino inglés
   return shortLang === "es" ? "es" : "en";
 }
 
-// Función para obtener traducción
+
 function t(key, lang = null) {
   const currentLang = lang || getBrowserLanguage();
   const keys = key.split(".");
@@ -240,13 +235,12 @@ function t(key, lang = null) {
     if (value && value[k]) {
       value = value[k];
     } else {
-      // Fallback a inglés si no encuentra la traducción
       value = translations.en;
       for (const fallbackKey of keys) {
         if (value && value[fallbackKey]) {
           value = value[fallbackKey];
         } else {
-          return key; // Retorna la clave si no encuentra traducción
+          return key; 
         }
       }
     }
@@ -255,7 +249,6 @@ function t(key, lang = null) {
   return value;
 }
 
-// Función para cambiar idioma manualmente
 function changeLanguage(lang) {
   if (translations[lang]) {
     localStorage.setItem("preferredLanguage", lang);
@@ -263,12 +256,11 @@ function changeLanguage(lang) {
   }
 }
 
-// Función para obtener idioma preferido (del localStorage o navegador)
 function getPreferredLanguage() {
   return localStorage.getItem("preferredLanguage") || getBrowserLanguage();
 }
 
-// Exportar funciones para uso global
+
 window.i18n = {
   t,
   changeLanguage,
