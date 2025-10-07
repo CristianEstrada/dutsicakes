@@ -1,6 +1,6 @@
 window.SnipcartSettings = {
     publicApiKey:
-      "ODBhZjY3N2UtODM4NC00NDZkLThmZTgtMzMxOTNhY2MwYjFjNjM4OTExNjA1NjA3MjcwMjQ3",
+      "ODBhZjY3N2UtODM4NC00NDZkLThmZTgtMzMxOTNhY2MwYjFjNjM4OTExNjA1NjA3MjcwMjQ3", // is public no worries about
     loadStrategy: "on-user-interaction",
     addProductBehavior: "none",
     language: (() => {
