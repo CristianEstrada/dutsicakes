@@ -1,0 +1,161 @@
+/* === About page overrides (aislado, no rompe el resto) === */
+
+/* Texto principal del about: tipografía fluida y sin clamp */
+.about .about-text {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(124,90,166,.08);
+    padding: clamp(1rem, 2.6vw, 1.5rem);
+  }
+  
+  .about .about-text .about-desc {
+    font-size: clamp(1rem, 1.5vw, 1.08rem);
+    line-height: 1.65;
+    color: var(--fg);
+    margin: 0 0 .9rem 0;
+  
+    /* Anula cualquier herencia indeseada de .producto */
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    text-align: left;
+  }
+  
+  /* Ajuste de la intro */
+  .about .about-lead {
+    font-size: clamp(1.02rem, 1.6vw, 1.12rem);
+    line-height: 1.6;
+  }
+  
+  /* ====== Team con un solo miembro ====== */
+  .about-team {
+    margin-top: 2rem;
+  }
+  
+  /* Banner/foto grande arriba (por si lo usas más adelante) */
+  .about-team .team-hero {
+    max-width: 980px;
+    margin: 0 auto 1rem;
+    border-radius: calc(var(--radius) - 4px);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(124,90,166,.08);
+  }
+  .about-team .team-hero img {
+    width: 100%;
+    height: clamp(200px, 34vw, 340px);
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Grid cuando solo hay uno: centrado y con ancho cómodo */
+  .about-team .team-grid.one {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px);
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.4rem);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  
+  /* Mantiene estilo de card del main pero sin depender de .producto */
+  .about-team .team-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(124,90,166,.08);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .about-team .team-card img {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto .6rem;
+    outline: 1px solid rgba(124,90,166,.12);
+    outline-offset: -1px;
+  }
+  
+  .about-team .team-card h3 {
+    margin: .2rem 0 .15rem;
+    font-weight: 800;
+    color: #402c54;
+  }
+  
+  .about-team .team-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+  }
+  
+  /* Responsive: si en futuro agregas más miembros, se verá bien */
+  @media (max-width: 920px){
+    .about-team .team-grid.one { grid-template-columns: minmax(220px, 1fr); }
+  }
+  
+  /* ===== Ajuste fino del layout base ===== */
+  .about .about-container {
+    align-items: stretch; /* iguala alturas visuales */
+  }
+  
+  /* =========================================================
+     NUEVO: Texto + foto al costado, con imagen completa
+     (usa <section class="about-container with-photo">)
+     ========================================================= */
+  .about-container.with-photo {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* texto más ancho que la foto */
+    gap: clamp(1rem, 3vw, 2rem);
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-container.with-photo .about-text {
+    /* ya tiene estilos arriba; aquí sólo aseguramos consistencia si reutilizas */
+    padding: clamp(1rem, 2.6vw, 1.5rem);
+  }
+  
+  .about-photo-full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Imagen completa (sin cortes) */
+  .about-photo-full img {
+    width: 100%;
+    max-width: 360px;        /* ajusta según tu preferencia */
+    height: auto;            /* conserva proporción original */
+    object-fit: contain;     /* NO recorta, asegura imagen completa */
+    background: #fff;        /* opcional: marco blanco detrás */
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(124,90,166,.08);
+  }
+  
+  /* Caption bajo la imagen */
+  .about-photo-full .photo-caption {
+    margin-top: 0.6rem;
+    font-weight: 700;
+    color: var(--muted);
+    font-size: .98rem;
+  }
+  
+  /* Responsive: en pantallas chicas, una columna */
+  @media (max-width: 920px) {
+    .about-container.with-photo {
+      grid-template-columns: 1fr;
+    }
+    .about-photo-full img {
+      max-width: 440px;      /* un poco más grande en mobile si quieres */
+      margin-inline: auto;
+    }
+  }
+  

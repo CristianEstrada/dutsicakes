@@ -1,0 +1,9 @@
+{
+    "id": "custom-cupcakes-regular",
+    "name": "Custom Cupcakes (Regular)",
+    "price": 7,
+    "url": "https://www.dutsicakes.com/",
+    "description": "Your dream regular cupcakes, brought to life. We work with your ideas, favorite flavors, and color palettes to create the perfect custom cupcakes for any occasion.",
+    "image": "https://www.dutsicakes.com/assets/img/CupCakes/customregular.webp",
+    "category": "cupcake"
+}

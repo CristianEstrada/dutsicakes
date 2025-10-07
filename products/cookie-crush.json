@@ -1,0 +1,9 @@
+{
+    "id": "cookie-crush",
+    "name": "Cookie Crush",
+    "price": 4.25,
+    "url": "https://www.dutsicakes.com/",
+    "description": "Vanilla cupcake swirled with oreo pieces and rich oreo cream",
+    "image": "https://www.dutsicakes.com/assets/img/CupCakes/cookie_crush.webp",
+    "category": "cupcake"
+}

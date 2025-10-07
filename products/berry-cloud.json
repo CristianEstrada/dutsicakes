@@ -1,0 +1,9 @@
+{
+    "id": "berry-cloud",
+    "name": "Berry Cloud",
+    "price": 4.25,
+    "url": "https://www.dutsicakes.com/",
+    "description": "Fluffy strawberry cupcake topped with sweet cream cheese frosting",
+    "image": "https://www.dutsicakes.com/assets/img/CupCakes/berrycloud.webp",
+    "category": "cupcake"
+} 
