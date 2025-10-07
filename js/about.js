@@ -1,4 +1,3 @@
-// js/about.js
 function applyTranslations() {
     const elements = document.querySelectorAll("[data-i18n]");
     const lang = window.i18n.getPreferredLanguage();
