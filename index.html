@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bakery | Cookies & Cupcakes</title>
+    <meta
+      name="description"
+      content="Catálogo de cookies y cupcakes artesanales hechos con amor."
+    />
+    <link rel="icon" href="./assets/img/SVG/favicon.svg" type="image/x-icon" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
+    <!-- JS -->
+  </head>
+
+  <body>
+    <div id="welcome-modal">
+      <img src="/assets/img/SVG/favicon.svg" alt="Logo" class="modal-logo">
+      <div class="modal-spinner"></div>
+    </div>
+
+    <header>
+      <div class="logo">
+        <a href="/" title="Inicio"><img src="./assets/img/SVG/favicon.svg" alt="Logo DutsiCakes"></a>
+      </div>
+      <nav aria-label="Menú principal">
+        <ul>
+          <li>
+            <button class="snipcart-checkout" data-i18n="cart">
+              🛒 Ver carrito
+            </button>
+          </li>
+          <li><a href="#inicio" data-i18n="home">Inicio</a></li>
+          <li><a href="#cookies" data-i18n="cookies">Cookies</a></li>
+          <li><a href="#cupcakes" data-i18n="cupcakes">Cupcakes</a></li>
+          <li><a href="/about.html" data-i18n="aboutusmenu">About us</a></li>
+          <li><a href="#quote" data-i18n="contact">Contacto</a></li>
+          <li class="language-selector">
+            <select
+              id="languageSelect"
+              onchange="window.i18n.changeLanguage(this.value)"
+            >
+              <option value="en">🇺🇸 EN</option>
+              <option value="es">🇪🇸 ES</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <!-- Hero -->
+      <section class="hero" aria-label="Hero">
+        <div class="hero-carousel">
+          <button class="hero-nav prev" type="button" aria-label="Anterior">←</button>
+      
+          <div class="hero-viewport" id="heroViewport">
+            <div class="hero-track" id="heroTrack">
+              <!-- Los slides (imgs) se inyectan por JS -->
+            </div>
+          </div>
+      
+          <button class="hero-nav next" type="button" aria-label="Siguiente">→</button>
+          <div class="hero-dots" id="heroDots" role="tablist" aria-label="Paginación"></div>
+      
+          <!-- Tu copy/CTA por encima del carrusel -->
+          <div class="hero-overlay">
+            <h1 data-i18n="heroTitle">Dulces que enamoran</h1>
+            <h1 data-i18n="heroSubtitle">Cookies y cupcakes artesanales, recién horneados.</h1>
+            <a href="#cookies" class="btn-cta" data-i18n="viewCatalog">Ver catálogo</a>
+          </div>
+        </div>
+      
+        <noscript>
+          <img src="./assets/img/hero/fallback.jpg" alt="Productos destacados" class="hero-fallback" />
+        </noscript>
+      </section>
+      
+
+      <!-- Cookies -->
+      <section aria-labelledby="cookies-title">
+        <h2 class="title_products" id="cookies-title" data-i18n="cookiesTitle">
+          Cookies
+        </h2>
+        <div class="productContainer" id="cookies"></div>
+      </section>
+
+      <!-- Cupcakes -->
+      <section aria-labelledby="cupcakes-title">
+        <h2
+          class="title_products"
+          id="cupcakes-title"
+          data-i18n="cupcakesTitle"
+        >
+          Cupcakes
+        </h2>
+        <div class="productContainer" id="cupcakes"></div>
+      </section>
+
+      <!-- Template para tarjetas -->
+      <template id="card-tpl">
+        <article class="producto">
+          <img class="prod-img" loading="lazy" decoding="async" alt="" />
+          <h3 class="prod-title"></h3>
+          <p class="prod-desc"></p>
+          <span class="price"></span>
+          <button class="snipcart-add-item btn-cta" data-i18n="addToCart">
+            🛒 Agregar al carrito
+          </button>
+        </article>
+      </template>
+
+      <section id="reviews" aria-label="Customer reviews">
+        <h2 class="title_products" data-i18n="titleReview">Lo que dicen nuestros clientes</h2>
+
+        <div class="reviews-shell">
+          <button class="reviews-nav prev" type="button" aria-label="Anterior">
+            ←
+          </button>
+
+          <div class="reviews-viewport" id="reviewsViewport">
+            <div class="reviews-track" id="reviewsTrack">
+              <!-- slides here -->
+            </div>
+          </div>
+
+          <button class="reviews-nav next" type="button" aria-label="Siguiente">
+            →
+          </button>
+        </div>
+      </section>
+
+      <!-- Get a quote -->
+      <section id="quote">
+        <h2 data-i18n="contactTitle">Get a quote</h2>
+
+        <form id="quote-form">
+          <div class="grid-two">
+            <div>
+              <label for="q-name" data-i18n="nameLabel">Name</label>
+              <input
+                id="q-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+                data-i18n-placeholder="namePlaceholder"
+                required
+              />
+            </div>
+            <div>
+              <label for="q-email" data-i18n="emailLabel">Email</label>
+              <input
+                id="q-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="your@email.com"
+                data-i18n-placeholder="emailPlaceholder"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="grid-two">
+            <div>
+              <label for="q-phone" data-i18n="phoneLabel"
+                >Phone (optional)</label
+              >
+              <input
+                id="q-phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="+1 555 555 5555"
+                data-i18n-placeholder="phonePlaceholder"
+              />
+            </div>
+            <div>
+              <label for="q-category" data-i18n="categoryLabel"
+                >Product type</label
+              >
+              <select id="q-category" name="category" required>
+                <option value="" selected disabled data-i18n="categorySelect">
+                  Select one
+                </option>
+                <option value="custom-cupcake" data-i18n="optCustomCupcake">
+                  Custom cupcake
+                </option>
+                <option value="custom-cookie" data-i18n="optCustomCookie">
+                  Custom cookie
+                </option>
+                <option value="cake" data-i18n="optCake">Cake</option>
+                <option value="other" data-i18n="optOther">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-two">
+            <div>
+              <label for="q-qty" data-i18n="qtyLabel">Estimated quantity</label>
+              <input
+                id="q-qty"
+                name="quantity"
+                type="number"
+                min="1"
+                step="1"
+                placeholder="e.g. 24"
+                data-i18n-placeholder="qtyPlaceholder"
+                required
+              />
+            </div>
+            <div>
+              <label for="q-date" data-i18n="dateLabel"
+                >Event date (optional)</label
+              >
+              <input id="q-date" name="date" type="date" />
+            </div>
+          </div>
+
+          <label for="q-message" data-i18n="messageLabel">Message</label>
+          <textarea
+            id="q-message"
+            name="message"
+            rows="5"
+            placeholder="Flavors, colors, theme, dietary needs…"
+            data-i18n-placeholder="msgPlaceholder"
+            required
+          ></textarea>
+
+          <div class="review-actions">
+            <button type="submit" class="btn-cta" data-i18n="sendButton">
+              Send
+            </button>
+          </div>
+
+          <p class="muted">
+            Thanks for reaching out! We’ve received your message and will get back to you soon with a personalized quote.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Columna marca -->
+        <div class="footer-brand">
+          <img
+            src="./assets/img/SVG/favicon.svg"
+            alt="Dutsi Cakes Logo"
+            class="footer-logo"
+          />
+          <h3 class="footer-title">Dutsi Cakes</h3>
+          <p class="footer-desc">
+            Family-owned micro-bakery | Available for catering and custom orders
+          </p>
+          <ul class="footer-contact">
+            <li>
+              Email:
+              <a href="mailto:shop@dutsicakes.com">shop@dutsicakes.com</a>
+            </li>
+            <li>
+              Instagram:
+              <a href="https://instagram.com/dutsicakes" target="_blank"
+                >@dutsicakes</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna enlaces -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/#productos">Menu</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/#quote">Custom orders</a></li>
+            <li><a href="/#seasonal-section">Seasonal exclusives</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna disclaimer -->
+        <div class="footer-disclaimer">
+          <h4>Allergy Disclaimer</h4>
+          <p>
+            Please note: All products are made in a kitchen that handles nuts,
+            dairy, eggs, wheat, gluten and soy. We cannot guarantee an
+            allergen-free environment.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>©2025 Dutsi Cakes. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./js/translations.js"></script>
+    <script src="./js/index.js" defer></script>
+    <script src="./js/snipcart.js" defer></script>
+    <script src="./js/loader.js"></script>
+    
+      
+  </body>
+</html>

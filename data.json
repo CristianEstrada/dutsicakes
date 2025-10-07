@@ -1,0 +1,114 @@
+[ {
+    "id": "campfire-chip",
+    "name": "Campfire chip",
+    "price": 5.00,
+    "img": "./assets/img/CooKies/campfirechip.webp",
+    "description": "A gooey s'more inside a classic chocolate chip cookie.",
+    "category": "cookie"
+  },
+  {
+    "id": "berry-bright",
+    "name": "Berry Bright",
+    "price": 4,
+    "img": "./assets/img/CooKies/berrybright.webp",
+    "description": "Cakey lemon cookie topped with creamy white lemon frosting and a sprinkle of sweet-tart-freeze-dried strawberries for a bright, refreshing finish.",
+    "category": "cookie"
+  },
+  {
+    "id": "cookie-butter-dream",
+    "name": "Cookie Butter Dream",
+    "price": 5,
+    "img": "./assets/img/CooKies/cookiebutterdream.webp",
+    "description": "Two rich, fudgy chocolate cookies filled with hot-chocolate cream and marshmallows",
+    "category": "cookie"
+  },
+  {
+    "id": "toffee-temptation",
+    "name": "Toffee Temptation",
+    "price": 4,
+    "img": "./assets/img/CooKies/tofeetemptation.webp",
+    "description": "Double chocolate chip cookie topped with rich toffee.",
+    "category": "cookie"
+  },
+  {
+    "id": "raisin-the-bar",
+    "name": "Raisin the Bar",
+    "price": 3,
+    "img": "./assets/img/CooKies/raisinthebar.webp",
+    "description": "Chewy oatmeal cookie loaded with a delicious mix of sweet raisins, rich chocolate, and warm cinnamon chips in every bite.",
+    "category": "cookie"
+
+  },
+  {
+    "id": "velvet-classic",
+    "name": "Velvet Classic",
+    "price": 4.25,
+    "img": "./assets/img/CupCakes/velvetclassic.webp",
+    "description": "Red velvet cupcake topped with tangy cream cheese frostingn",
+    "category": "cupcake"
+  },
+  {
+    "id": "cookie-crush",
+    "name": "Cookie Crush",
+    "price": 4.25,
+    "img": "./assets/img/CupCakes/cookie_crush.webp",
+    "description": "Vanilla cupcake swirled with oreo pieces and rich oreo cream",
+    "category": "cupcake"
+  }, {
+    "id": "choco-bomb",
+    "name": "Choco Bomb",
+    "price": 4.25,
+    "img": "./assets/img/CupCakes/chocobomb.webp",
+    "description": "Moist chocolate cupcake with fudgy chocolate cream cheese frosting",
+    "category": "cupcake"
+  }, {
+    "id": "citrus-zen",
+    "name": "Citrus Zen",
+    "price": 4.25,
+    "img": "./assets/img/CupCakes/citruszen.webp",
+    "description": "Earthy matcha cupcake topped zesty lemon cream cheese frosting",
+    "category": "cupcake"
+  },
+  {
+    "id": "berry-cloud",
+    "name": "Berry Cloud",
+    "price": 4.25,
+    "img": "./assets/img/CupCakes/berrycloud.webp",
+    "description": "Fluffy strawberry cupcake topped with sweet cream cheese frosting",
+    "category": "cupcake"
+  },
+  {
+    "id": "custom-cupcakes-jumbo",
+    "name": "Custom Cupcakes (Jumbo)",
+    "price": 10,
+    "img" : "./assets/img/CupCakes/customjumbo.webp",
+    "description": "Your dream jumbo cupcakes, brought to life. We work with your ideas, favorite flavors, and color palettes to create the perfect custom cupcakes for any occasion.",
+    "category": "cupcake"
+
+  },
+  {
+    "id": "custom-cupcakes-regular",
+    "name": "Custom Cupcakes (Regular)",
+    "price": 7,
+    "img" : "./assets/img/CupCakes/customregular.webp",
+    "description": "Your dream regular cupcakes, brought to life. We work with your ideas, favorite flavors, and color palettes to create the perfect custom cupcakes for any occasion.",
+    "category": "cupcake"
+
+  },
+  {
+    "id": "cinnamon-spell",
+    "name": "Cinnamon Spell",
+    "price": 4.25,
+    "img": "./assets/img/CupCakes/cinnamonspell.webp",
+    "description": "Pumpkin spice cake topped with brown sugar cinnamon frosting",
+    "category": "seasonal"
+  },
+  {
+    "id" : "halloween-sugar",
+    "name" : "Halloween Sugar",
+    "price": 5,
+    "img" : "./assets/img/CooKies/halloween.webp",
+    "description": "Chewy sugar cookie in a patchwork of spooky Halloween colors: orange, green, purple, and black - finished with playful candy and sugar eyeballs.",
+    "category": "seasonal"
+  }
+]

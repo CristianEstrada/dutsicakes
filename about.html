@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DutsiCakes | About</title>
+    <link rel="icon" href="./assets/img/SVG/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/about.css" />
+  </head>
+
+  <body>
+    <div id="welcome-modal">
+      <img src="/assets/img/SVG/favicon.svg" alt="Logo" class="modal-logo" />
+      <div class="modal-spinner"></div>
+    </div>
+
+    <header>
+      <div class="logo">
+        <a href="/" title="Inicio"><img src="./assets/img/SVG/favicon.svg" alt="Logo DutsiCakes"></a>
+      </div>
+      <nav aria-label="Menú principal">
+        <ul>
+          <li>
+            <button class="snipcart-checkout" data-i18n="cart">🛒 Ver carrito</button>
+          </li>
+          <li><a href="/" data-i18n="home">Inicio</a></li>
+          <li><a href="/#cookies" data-i18n="cookies">Cookies</a></li>
+          <li><a href="/#cupcakes" data-i18n="cupcakes">Cupcakes</a></li>
+          <li><a href="/#quote" data-i18n="contact">Contacto</a></li>
+          <li class="language-selector">
+            <select id="languageSelect" onchange="window.i18n.changeLanguage(this.value)">
+              <option value="en">🇺🇸 EN</option>
+              <option value="es">🇪🇸 ES</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="about">
+      <section class="about-hero">
+        <h1 class="title_products" data-i18n="about.title">About us</h1>
+        <p class="about-lead" data-i18n="about.lead">
+          Dutsi Cakes is a family-owned micro-bakery that transforms cupcakes and cookies into edible works of art.
+        </p>
+      </section>
+
+      <section class="about-container with-photo">
+        <article class="about-text">
+          <p class="about-desc" data-i18n="about.body.p1">
+            Dutsi Cakes is a family-owned cottage-bakery...
+          </p>
+          <p class="about-desc" data-i18n="about.body.p2">
+            Our custom menu, available for celebrations...
+          </p>
+        </article>
+
+        <aside class="about-photo-full">
+          <img src="./assets/img/about/profile1.jpeg" alt="Head Baker" />
+          <h3 class="photo-caption" data-i18n="about.photoCaption">Head Baker</h3>
+        </aside>
+      </section>
+
+      <section class="about-team">
+        <h2 class="title_products" data-i18n="about.teamTitle">Our team</h2>
+        <div class="team-grid one">
+          <article class="team-card">
+            <img src="./assets/img/about/profile1.jpeg" alt="Alex" />
+            <h3 data-i18n="about.team.name1">Johana</h3>
+            <p data-i18n="about.team.role1">Head Baker</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Columna marca -->
+        <div class="footer-brand">
+          <img
+            src="./assets/img/SVG/favicon.svg"
+            alt="Dutsi Cakes Logo"
+            class="footer-logo"
+          />
+          <h3 class="footer-title">Dutsi Cakes</h3>
+          <p class="footer-desc">
+            Family-owned micro-bakery | Available for catering and custom orders
+          </p>
+          <ul class="footer-contact">
+            <li>
+              Email:
+              <a href="mailto:shop@dutsicakes.com">shop@dutsicakes.com</a>
+            </li>
+            <li>
+              Instagram:
+              <a href="https://instagram.com/dutsicakes" target="_blank"
+                >@dutsicakes</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna enlaces -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/#productos">Menu</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/#quote">Custom orders</a></li>
+            <li><a href="/#seasonal-section">Seasonal exclusives</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna disclaimer -->
+        <div class="footer-disclaimer">
+          <h4>Allergy Disclaimer</h4>
+          <p>
+            Please note: All products are made in a kitchen that handles nuts,
+            dairy, eggs, wheat, gluten and soy. We cannot guarantee an
+            allergen-free environment.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>©2025 Dutsi Cakes. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+    <!-- JS -->
+    <script src="./js/translations.js"></script>
+    <script src="./js/about.js" defer></script>
+    <script src="./js/loader.js"></script>
+  </body>
+</html>
