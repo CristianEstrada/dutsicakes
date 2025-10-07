@@ -1,6 +1,4 @@
-/* =========
-   Base / Reset
-   ========= */
+
 * {
   margin: 0;
   padding: 0;
@@ -37,9 +35,6 @@ html {
   }
 }
 
-/* =========
-      Fondo Global del Sitio
-      ========= */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: radial-gradient(
@@ -73,7 +68,6 @@ img {
   object-fit: cover;
 }
 
-/* Modal contenedor */
 #welcome-modal {
   position: fixed;
   top: 0;
@@ -94,7 +88,6 @@ img {
   display: none;
 }
 
-/* Imagen del logo con animación bounce */
 .modal-logo {
   width: 140px;
   height: auto;
@@ -120,7 +113,7 @@ img {
   }
 }
 
-/* Spinner minimalista */
+
 .modal-spinner {
   border: 4px solid #ddd;
   border-top: 4px solid #333;
@@ -138,10 +131,6 @@ img {
     transform: rotate(360deg);
   }
 }
-
-/* =========
-      Enlaces
-      ========= */
 a {
   color: inherit;
   text-decoration: none;
@@ -157,9 +146,7 @@ a:focus {
   outline: none;
 }
 
-/* =========
-      Header / Nav
-      ========= */
+
 header {
   background: #fff;
   box-shadow: 0 6px 14px rgba(51, 22, 59, 0.06);
@@ -167,14 +154,14 @@ header {
   margin: 18px auto;
   max-width: 1180px;
 
-  /* layout base */
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
 
-  /* sticky */
+
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -182,7 +169,7 @@ header {
   -webkit-backdrop-filter: blur(6px);
 }
 
-/* Logo siempre visible */
+
 .logo {
   display: block !important;
   flex: 0 0 auto;
@@ -200,7 +187,6 @@ header {
   max-width: clamp(120px, 16vw, 200px);
 }
 
-/* Navegación */
 nav {
   flex: 1 1 auto;
   min-width: 260px;
@@ -214,7 +200,7 @@ nav ul {
   list-style: none;
 }
 
-/* Estilo del botón carrito */
+
 .snipcart-checkout {
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
@@ -231,7 +217,7 @@ nav ul {
   transform: translateY(-2px);
 }
 
-/* Selector de idioma */
+
 .language-selector select {
   padding: 0.4rem 0.6rem;
   border-radius: 999px;
@@ -256,7 +242,7 @@ nav ul {
   box-shadow: 0 0 0 3px rgba(124, 90, 166, 0.1);
 }
 
-/* >= 701px */
+
 @media (min-width: 701px) {
   header {
     padding: 1rem 2rem;
@@ -269,7 +255,6 @@ nav ul {
   }
 }
 
-/* <= 700px */
 @media (max-width: 700px) {
   header {
     flex-direction: column;
@@ -294,11 +279,9 @@ nav ul {
   }
 }
 
-/* =========
-   Hero
-   ========= */
+
 .hero {
-  /* ALTURA GLOBAL del hero (ajústala si quieres) */
+
   --hero-h: clamp(620px, 45vh, 520px);
 
   width: 100vw;
@@ -315,7 +298,6 @@ nav ul {
   position: relative;
 }
 
-/* Título y subtítulo (encima del carrusel) */
 .hero h1 {
   font-size: clamp(1.4rem, 4vw, 2.2rem);
   margin-bottom: 0.75rem;
@@ -328,10 +310,9 @@ nav ul {
   color: var(--muted);
 }
 
-/* ===== Hero Carousel (imágenes completas del mismo tamaño) ===== */
 .hero .hero-carousel {
   position: relative;
-  height: var(--hero-h); /* fuerza misma altura para todas las imágenes */
+  height: var(--hero-h); 
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--bg);
@@ -357,16 +338,16 @@ nav ul {
 .hero .hero-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* recorta sin deformar para uniformidad */
+  object-fit: cover; 
   object-position: center;
   display: block;
   background: #eee;
 }
 
-/* Flechas del carrusel */
+
 .hero .hero-nav {
   position: absolute;
-  z-index: 4; /* sobre overlay */
+  z-index: 4; 
   top: 50%;
   transform: translateY(-50%);
   width: 42px;
@@ -391,10 +372,10 @@ nav ul {
   right: 0.6rem;
 }
 
-/* Dots/paginación */
+
 .hero .hero-dots {
   position: absolute;
-  z-index: 4; /* sobre overlay */
+  z-index: 4; 
   bottom: 0.7rem;
   left: 50%;
   transform: translateX(-50%);
@@ -413,7 +394,7 @@ nav ul {
   background: var(--brand);
 }
 
-/* Capa de texto/CTA por encima (no bloquea flechas) */
+
 .hero .hero-overlay {
   position: absolute;
   inset: 0;
@@ -428,11 +409,11 @@ nav ul {
     rgba(0, 0, 0, 0) 40%
   );
 
-  /* Evita que tape flechas/dots, pero permite click en su contenido */
+ 
   pointer-events: none;
 }
 .hero .hero-overlay > * {
-  pointer-events: auto; /* restaura interacción en h1, p, botones */
+  pointer-events: auto; 
 }
 .hero .hero-overlay h1,
 .hero .hero-overlay p {
@@ -440,7 +421,7 @@ nav ul {
   text-shadow: 0 1px 12px rgba(0, 0, 1, 0.65);
 }
 
-/* Imagen fallback para <noscript> si la usas */
+
 .hero .hero-fallback {
   width: 100%;
   height: auto;
@@ -448,16 +429,14 @@ nav ul {
   border-radius: var(--radius);
 }
 
-/* Reduce motion */
+
 @media (prefers-reduced-motion: reduce) {
   .hero .hero-track {
     transition: none;
   }
 }
 
-/* =========
-      Botones CTA
-      ========= */
+
 .btn-cta {
   display: inline-block;
   background: var(--brand);
@@ -477,9 +456,6 @@ nav ul {
   box-shadow: 0 10px 22px rgba(217, 122, 160, 0.45);
 }
 
-/* =========
-      Títulos secciones
-      ========= */
 .title_products {
   color: var(--fg);
   font-weight: 800;
@@ -497,9 +473,6 @@ nav ul {
   background: linear-gradient(90deg, var(--brand), var(--accent));
 }
 
-/* =========
-      Grid productos
-      ========= */
 .productContainer {
   --max-cols: 5;
   display: grid;
@@ -541,9 +514,6 @@ nav ul {
   }
 }
 
-/* =========
-   CARD PRODUCTO
-   ========= */
    .producto {
     background: var(--card);
     border-radius: var(--radius);
@@ -587,8 +557,7 @@ nav ul {
     color: #402c54;
   }
   
-  /* Muestra TODO el texto y usa la descripción como spacer
-     para empujar warning + precio hacia abajo */
+
   .producto .prod-desc {
     font-size: clamp(0.95rem, 1.4vw, 0.98rem);
     color: var(--muted);
@@ -596,15 +565,14 @@ nav ul {
     text-align: center;
     line-height: 1.45;
   
-    /* clave: sin clamp, sin cortes, y que crezca para ocupar el espacio libre */
+   
     display: block;
     overflow: visible;
     min-height: auto;
     max-height: none;
-    flex: 1 1 auto; /* <- hace que warning+price queden al fondo */
+    flex: 1 1 auto; 
   }
-  
-  /* Aviso de alérgenos: normal, SIN margin-top:auto */
+
   .producto .prod-warning {
     font-size: 0.82rem;
     line-height: 1.35;
@@ -616,8 +584,7 @@ nav ul {
     margin: 0.2rem 0 0.6rem;
     text-align: center;
   }
-  
-  /* Precio debajo del warning; SIN margin-top:auto */
+
   .producto .price {
     font-weight: 700;
     color: var(--brand-600);
@@ -628,7 +595,7 @@ nav ul {
     padding: 0.35rem 0.7rem;
     border-radius: 999px;
   
-    margin-top: .45rem; /* separador corto del warning */
+    margin-top: .45rem; 
   }
   
   .producto .btn-cta {
@@ -652,10 +619,6 @@ nav ul {
     box-shadow: 0 10px 22px rgba(217, 122, 160, 0.45);
   }
   
-
-/* =========
-      Get a quote (estilo como productos)
-      ========= */
 #quote {
   max-width: 1180px;
   margin: 0 auto;
@@ -701,7 +664,6 @@ nav ul {
   outline: none;
 }
 
-/* grid de dos columnas igual que tarjetas */
 #quote .grid-two {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -713,7 +675,6 @@ nav ul {
   }
 }
 
-/* Botón principal igual a productos */
 #quote button[type="submit"] {
   background: var(--brand);
   color: #fff;
@@ -735,7 +696,7 @@ nav ul {
   box-shadow: 0 10px 22px rgba(217, 122, 160, 0.45);
 }
 
-/* Botón secundario estilo outline */
+
 #quote .btn-outline {
   background: transparent;
   border: 1px solid var(--accent);
@@ -810,7 +771,6 @@ nav ul {
   outline: none;
 }
 
-/* grid igual que quote */
 #review .grid-two {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -821,8 +781,6 @@ nav ul {
     grid-template-columns: 1fr;
   }
 }
-
-/* Botones igual que productos */
 #review button[type="submit"] {
   background: var(--brand);
   color: #fff;
@@ -844,7 +802,6 @@ nav ul {
   box-shadow: 0 10px 22px rgba(217, 122, 160, 0.45);
 }
 
-/* Botón secundario estilo outline */
 #review .btn-outline {
   background: transparent;
   border: 1px solid var(--accent);
@@ -874,7 +831,6 @@ nav ul {
   font-size: 0.95rem;
 }
 
-/* ===== ABOUT ===== */
 .about {
   max-width: 1180px;
   margin: 0 auto;
@@ -892,7 +848,6 @@ nav ul {
   font-size: 1.05rem;
 }
 
-/* texto + galería al costado */
 .about-container {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -906,7 +861,6 @@ nav ul {
   }
 }
 
-/* mosaico de fotos */
 .about-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -929,7 +883,6 @@ nav ul {
   display: block;
 }
 
-/* equipo */
 .about-team {
   margin-top: 1rem;
 }
@@ -979,7 +932,6 @@ nav ul {
   font-size: 0.95rem;
 }
 
-/* ====== FOOTER ====== */
 footer {
   background: transparent;
   padding: 2rem 1rem 1rem;
@@ -1062,9 +1014,6 @@ footer {
   color: var(--muted);
 }
 
-/* =========
-      Utilidades
-      ========= */
 section {
   margin-bottom: 2rem;
 }
@@ -1074,11 +1023,6 @@ section {
   }
 }
 
-/* =========
-      PERSONALIZACIÓN COMPLETA DE SNIPCART
-      ========= */
-
-/* Fondo del carrito con el mismo patrón del sitio */
 #snipcart .snipcart-modal__overlay {
   background: radial-gradient(
       24px 24px at 12% 18%,
@@ -1099,7 +1043,6 @@ section {
     url("../img/background_cover.jpeg") center/cover no-repeat !important;
 }
 
-/* Contenedor principal del carrito */
 #snipcart .snipcart-modal__container {
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px) !important;
@@ -1108,7 +1051,6 @@ section {
   box-shadow: 0 20px 40px rgba(49, 34, 58, 0.2) !important;
 }
 
-/* Header del carrito */
 #snipcart .snipcart-cart__header {
   background: linear-gradient(135deg, var(--brand), var(--accent)) !important;
   color: white !important;
@@ -1120,7 +1062,6 @@ section {
   font-weight: 800 !important;
 }
 
-/* Botón cerrar carrito */
 #snipcart .snipcart-modal__close {
   background: rgba(255, 255, 255, 0.2) !important;
   color: white !important;
@@ -1133,7 +1074,6 @@ section {
   transform: scale(1.1) !important;
 }
 
-/* Botones principales del carrito */
 #snipcart .snipcart-button-primary {
   background: var(--brand) !important;
   color: white !important;
@@ -1151,7 +1091,7 @@ section {
   box-shadow: 0 10px 22px rgba(217, 122, 160, 0.45) !important;
 }
 
-/* Botones secundarios */
+
 #snipcart .snipcart-button-secondary {
   background: var(--accent) !important;
   color: white !important;
@@ -1167,7 +1107,6 @@ section {
   transform: translateY(-2px) !important;
 }
 
-/* Botón "Agregar al carrito" en productos del carrito */
 #snipcart .snipcart-item-quantity__button {
   background: var(--brand) !important;
   color: white !important;
@@ -1183,7 +1122,6 @@ section {
   transform: scale(1.1) !important;
 }
 
-/* Botón "Eliminar" producto */
 #snipcart .snipcart-item-actions__button {
   background: #ff6b6b !important;
   color: white !important;
@@ -1199,7 +1137,6 @@ section {
   transform: translateY(-1px) !important;
 }
 
-/* Total del carrito */
 #snipcart .snipcart-cart__footer {
   background: linear-gradient(
     135deg,
@@ -1246,13 +1183,11 @@ section {
   font-weight: 700 !important;
 }
 
-/* Contenedor del resumen del carrito */
 #snipcart .snipcart-summary {
   text-align: center !important;
   margin-bottom: 1.5rem !important;
 }
 
-/* Inputs del carrito */
 #snipcart input[type="text"],
 #snipcart input[type="email"],
 #snipcart input[type="tel"],
@@ -1269,7 +1204,6 @@ section {
   outline: none !important;
 }
 
-/* Productos individuales en el carrito */
 #snipcart .snipcart-item {
   background: rgba(255, 255, 255, 0.8) !important;
   border-radius: 12px !important;
@@ -1278,13 +1212,11 @@ section {
   padding: 1rem !important;
 }
 
-/* Precios en el carrito */
 #snipcart .snipcart-item-price {
   color: var(--accent) !important;
   font-weight: 700 !important;
 }
 
-/* Mensajes de error/éxito */
 #snipcart .snipcart-notification {
   background: var(--brand) !important;
   color: white !important;
@@ -1292,7 +1224,6 @@ section {
   border: none !important;
 }
 
-/* Botón de checkout */
 #snipcart .snipcart-checkout-button {
   background: linear-gradient(135deg, var(--brand), var(--accent)) !important;
   color: white !important;
@@ -1313,37 +1244,29 @@ section {
   box-shadow: 0 15px 35px rgba(238, 143, 178, 0.6) !important;
 }
 
-/* === Snipcart SIEMPRE por encima del header === */
 #snipcart [data-testid="cart"],
 #snipcart .snipcart-modal__container,
 #snipcart .snipcart-cart__content,
 #snipcart .snipcart-modal__overlay {
-  z-index: 99999 !important; /* más alto que el header */
+  z-index: 99999 !important; 
 }
 
-/* === Ocultar header cuando el carrito esté abierto (CSS :has) ===
-      Soporta Chrome/Edge/Safari modernos. Evita JS y eventos. */
 html:has(#snipcart [data-testid="cart"]) header,
 html:has(#snipcart .snipcart-cart__content) header,
 html:has(#snipcart .snipcart-modal__container) header {
   display: none !important;
 }
 
-/* Opcional: bloquear scroll de fondo mientras el carrito está abierto */
 html:has(#snipcart [data-testid="cart"]),
 html:has(#snipcart .snipcart-cart__content),
 html:has(#snipcart .snipcart-modal__container) {
   overflow: hidden;
 }
 
-/* Fallback defensivo: baja el z-index del header un poco (sigue encima del contenido normal) */
 header {
-  z-index: 1000; /* Snipcart sube a 99999, así siempre lo tapa */
+  z-index: 1000; 
 }
 
-/* =========
-      ANIMACIONES SUAVES
-      ========= */
 @keyframes floatIn {
   from {
     transform: translateY(8px);
@@ -1389,16 +1312,12 @@ a:hover,
   }
 }
 
-/* =========
-      ACCESIBILIDAD
-      ========= */
+
 :focus-visible {
   outline: 3px solid rgba(124, 90, 166, 0.45);
   outline-offset: 3px;
   border-radius: 12px;
 }
-
-/* ===== Reviews Carousel ===== */
 #reviews {
   max-width: 1180px;
   margin: 0 auto;
@@ -1428,7 +1347,6 @@ a:hover,
   padding: 0.25rem;
 }
 
-/* Tarjeta de review: armonizada con .producto */
 .review-card {
   background: var(--card);
   border-radius: var(--radius);
@@ -1462,7 +1380,6 @@ a:hover,
   opacity: 0.9;
 }
 
-/* Botones */
 .reviews-nav {
   background: var(--accent);
   color: #fff;
@@ -1487,7 +1404,6 @@ a:hover,
   transform: none;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .reviews-track {
     grid-auto-columns: minmax(240px, 1fr);
@@ -1510,21 +1426,20 @@ a:hover,
   }
 }
 
-/* Estrellas de reseña */
+
 .review-card .review-stars {
   font-size: 1.2rem;
   letter-spacing: 2px;
-  color: var(--accent); /* morado del tema */
+  color: var(--accent);
 }
 
 .review-card .star.full {
-  color: var(--accent); /* morado */
+  color: var(--accent); 
 }
 .review-card .star.empty {
-  color: rgba(124, 90, 166, 0.25); /* morado translúcido para vacías */
+  color: rgba(124, 90, 166, 0.25); 
 }
 
-/* Warning pequeño dentro de la tarjeta */
 .producto .prod-warning {
   font-size: 0.82rem;
   line-height: 1.35;
@@ -1546,14 +1461,12 @@ a:hover,
   fill: var(--accent);
 }
 
-/* Ajuste fino en móviles: aún más discreto */
 @media (max-width: 520px) {
   .producto .prod-warning {
     font-size: 0.78rem;
   }
 }
 
-/* ===== Modal tarifas de entrega ===== */
 .fees-modal {
   position: fixed;
   inset: 0;
@@ -1657,7 +1570,6 @@ a:hover,
   background: var(--brand-600, #d97aa0);
 }
 
-/* Asegura que tu “welcome-modal” quede por debajo de este si coincidieran */
 #welcome-modal {
   z-index: 9999;
-} /* fees-modal usa 99999 */
+} 
