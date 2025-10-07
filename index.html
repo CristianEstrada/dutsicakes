@@ -10,11 +10,8 @@
       content="Catálogo de cookies y cupcakes artesanales hechos con amor."
     />
     <link rel="icon" href="./assets/img/SVG/favicon.svg" type="image/x-icon" />
-
-    <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/main.css" />
 
-    <!-- JS -->
   </head>
 
   <body>
@@ -53,21 +50,17 @@
     </header>
 
     <main id="inicio">
-      <!-- Hero -->
       <section class="hero" aria-label="Hero">
         <div class="hero-carousel">
           <button class="hero-nav prev" type="button" aria-label="Anterior">←</button>
       
           <div class="hero-viewport" id="heroViewport">
             <div class="hero-track" id="heroTrack">
-              <!-- Los slides (imgs) se inyectan por JS -->
             </div>
           </div>
       
           <button class="hero-nav next" type="button" aria-label="Siguiente">→</button>
           <div class="hero-dots" id="heroDots" role="tablist" aria-label="Paginación"></div>
-      
-          <!-- Tu copy/CTA por encima del carrusel -->
           <div class="hero-overlay">
             <h1 data-i18n="heroTitle">Dulces que enamoran</h1>
             <h1 data-i18n="heroSubtitle">Cookies y cupcakes artesanales, recién horneados.</h1>
@@ -80,16 +73,12 @@
         </noscript>
       </section>
       
-
-      <!-- Cookies -->
       <section aria-labelledby="cookies-title">
         <h2 class="title_products" id="cookies-title" data-i18n="cookiesTitle">
           Cookies
         </h2>
         <div class="productContainer" id="cookies"></div>
       </section>
-
-      <!-- Cupcakes -->
       <section aria-labelledby="cupcakes-title">
         <h2
           class="title_products"
@@ -100,8 +89,6 @@
         </h2>
         <div class="productContainer" id="cupcakes"></div>
       </section>
-
-      <!-- Template para tarjetas -->
       <template id="card-tpl">
         <article class="producto">
           <img class="prod-img" loading="lazy" decoding="async" alt="" />
@@ -124,7 +111,6 @@
 
           <div class="reviews-viewport" id="reviewsViewport">
             <div class="reviews-track" id="reviewsTrack">
-              <!-- slides here -->
             </div>
           </div>
 
@@ -133,8 +119,6 @@
           </button>
         </div>
       </section>
-
-      <!-- Get a quote -->
       <section id="quote">
         <h2 data-i18n="contactTitle">Get a quote</h2>
 
@@ -247,7 +231,6 @@
 
     <footer>
       <div class="footer-container">
-        <!-- Columna marca -->
         <div class="footer-brand">
           <img
             src="./assets/img/SVG/favicon.svg"
@@ -271,8 +254,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- Columna enlaces -->
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
@@ -283,8 +264,6 @@
             <li><a href="/faq.html">FAQ</a></li>
           </ul>
         </div>
-
-        <!-- Columna disclaimer -->
         <div class="footer-disclaimer">
           <h4>Allergy Disclaimer</h4>
           <p>
